@@ -1,0 +1,22 @@
+/*
+    class Node 
+    	int data;
+    	Node left;
+    	Node right;
+	*/
+ /*
+ The height of a binary tree is the number of edges between the tree's root and its furthest leaf.
+ */
+	public static int height(Node root) {
+      	// Write your code here.
+        // Base case: if the tree is empty, the height is 0
+        if (root == null) {
+            return -1;
+        }
+        // Recursively calculate the height of left and right subtrees
+        int leftHeight = height(root.left);
+        int rightHeight = height(root.right);
+
+        // Height of the current node is max of heights of its subtrees plus 1
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
