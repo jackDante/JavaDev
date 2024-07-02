@@ -73,6 +73,12 @@ public static void topView(Node root) {
 
 //__________________________________________________________________________________________//
 
+ 	1
+       / \
+      2   3
+     / \ / \
+    4  5 6  7		It should output the nodes in the following order: 1 2 3 4 5 6 7.
+
 Given a pointer to the root of a binary tree, you need to print the level order traversal of this tree. 
 In level-order traversal (also known as breadth-first traversal)., nodes are visited level by level from left to right.
 
