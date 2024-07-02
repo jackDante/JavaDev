@@ -22,6 +22,18 @@
     }
 
 //__________________________________________________________________________________________//
+For example :
+
+   1
+    \
+     2
+      \
+       5
+      /  \
+     3    6
+      \
+       4
+Top View : 1, 2, 5, 6.
 
 public static void topView(Node root) {
         Map<Integer, Integer> topView = new TreeMap<>(); // TreeMap to keep it sorted by keys
