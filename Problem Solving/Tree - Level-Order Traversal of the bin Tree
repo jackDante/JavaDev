@@ -1,0 +1,40 @@
+/*
+ 	  1
+       / \
+      2   3
+     / \ / \
+    4  5 6  7		It should output the nodes in the following order: 1 2 3 4 5 6 7.
+
+Given a pointer to the root of a binary tree, you need to print the level order traversal of this tree. 
+In level-order traversal (also known as breadth-first traversal)., nodes are visited level by level from left to right.
+*/
+
+// Function to perform level-order traversal of the binary tree
+
+    public static void levelOrder(Node root) {
+        if (root == null) {
+            return;
+        }
+
+        // Create a queue for level-order traversal
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            // Remove the front node from the queue and print its data
+            Node currentNode = queue.poll();
+            System.out.print(currentNode.data + " ");
+
+            // Add the left child to the queue
+            if (currentNode.left != null) {
+                queue.add(currentNode.left);
+            }
+
+            // Add the right child to the queue
+            if (currentNode.right != null) {
+                queue.add(currentNode.right);
+            }
+        }
+    }
+
+//__________________________________________________________________________________________//

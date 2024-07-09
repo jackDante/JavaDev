@@ -1,0 +1,51 @@
+/*
+For example :
+
+   1
+    \
+     2
+      \
+       5
+      /  \
+     3    6
+      \
+       4
+Top View : 1, 2, 5, 6.
+*/
+
+
+public static void topView(Node root) {
+        Map<Integer, Integer> topView = new TreeMap<>(); // TreeMap to keep it sorted by keys
+
+        Queue<AbstractMap.SimpleEntry<Integer, Node>> queue = new ArrayDeque<>();
+
+        queue.add(new AbstractMap.SimpleEntry<>(0, root));
+
+        while (!queue.isEmpty()) {
+            AbstractMap.SimpleEntry<Integer, Node> currentEntry = queue.poll();
+
+            Integer horizontalDistance = currentEntry.getKey();
+            Node currentNode = currentEntry.getValue();
+
+            // Insert the node into the top view map if the key is not already present
+            if (!topView.containsKey(horizontalDistance)) {
+                topView.put(horizontalDistance, currentNode.data);
+            }
+
+            // Add the left child with a horizontal distance decreased by 1
+            if (currentNode.left != null) {
+                queue.add(new AbstractMap.SimpleEntry<>(horizontalDistance - 1, currentNode.left));
+            }
+
+            // Add the right child with a horizontal distance increased by 1
+            if (currentNode.right != null) {
+                queue.add(new AbstractMap.SimpleEntry<>(horizontalDistance + 1, currentNode.right));
+            }
+        }
+
+        // Print the top view
+        for (int hd : topView.keySet()) {
+            System.out.print(topView.get(hd) + " ");
+        }
+
+    }
